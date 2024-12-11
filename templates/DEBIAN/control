@@ -1,0 +1,8 @@
+Package: nexttrace
+Version: version
+Architecture: arch
+Maintainer: wcbing <i@wcbing.top>
+Section: net
+Priority: optional
+Homepage: https://www.nxtrace.org
+Description:  NextTrace, an open source visual route tracking CLI tool
