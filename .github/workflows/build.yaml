@@ -1,23 +1,29 @@
 name: build and release
 
 on:
-  repository_dispatch:  # 响应外部触发器
-    types: [new-release]
+  workflow_dispatch:  # 响应外部触发器
+    inputs:
+      tag:
+        description: 'Release Tag'
+        required: true
+        type: string
 
 jobs:
   build-release:
     runs-on: ubuntu-latest
     env:
-      TAG: ${{ github.event.client_payload.tag }}
+      TAG: ${{ inputs.tag }}
     steps:
-    - name: Checkout and Build
-      run: |
-        echo "will build $TAG" && ./build.sh $TAG
+    - name: Checkout
       uses: actions/checkout@v4
+    - name: Build
+      run: |
+        echo "will build $TAG"
+        ./build.sh "$TAG"
     - name: Release
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: $TAG
+        tag_name: ${{ inputs.tag }}
         files: |
           *.deb
           Packages
