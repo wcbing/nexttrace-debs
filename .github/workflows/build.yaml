@@ -1,8 +1,6 @@
 name: build and release
 
-on:
-  repository_dispatch:  # 响应外部触发器
-    types: [new-release]
+on: workflow_dispatch  # 响应外部触发器
 
 jobs:
   build-release:
