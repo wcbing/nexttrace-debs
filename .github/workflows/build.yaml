@@ -6,7 +6,7 @@ jobs:
   build-release:
     runs-on: ubuntu-latest
     env:
-      TAG: ${{ github.event.client_payload.tag }}
+      TAG: ${{ input.tag }}
     steps:
     - name: Checkout
       uses: actions/checkout@v4
