@@ -1,6 +1,12 @@
 name: build and release
 
-on: workflow_dispatch  # 响应外部触发器
+on:
+  workflow_dispatch:  # 响应外部触发器
+    inputs:
+      tag:
+        description: 'Release Tag'
+        required: true
+        type: environment
 
 jobs:
   build-release:
