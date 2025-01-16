@@ -6,7 +6,7 @@ on:
       tag:
         description: 'Release Tag'
         required: true
-        type: environment
+        type: string
 
 jobs:
   build-release:
